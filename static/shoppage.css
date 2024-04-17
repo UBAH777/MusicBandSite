@@ -1,0 +1,143 @@
+*{
+    box-sizing: border-box;
+}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+body {
+    background-color: #000000;
+}
+#navbar {
+    background-color: #000000;
+    padding-left: 15%;
+    padding-right: 15%;
+    height: 50px;
+    padding-bottom: 0px;
+    font: 20px fantasy, Arial;
+    font-weight: 900;
+}
+#navbar ul {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+#navbar li {
+    float: left;
+    display: block;
+    width: 20%;
+    height: 50px;
+    list-style: none;   
+}
+#navbar a {
+    display: block;
+    color: rgb(79, 173, 250);
+    text-align: center;
+    height: 100%;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+#main_img a {
+    padding: 0;
+}
+#main_img img {
+    height: 100%;
+    vertical-align: center;
+}
+#navbar a:hover {
+    background-color: #cccccc7e;
+}
+#navbar:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+main {
+    box-sizing: border-box;
+    padding: 20px 30%;
+    height: 650px;
+
+    background-image: url(/static/imgs/concert6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+}
+.info_wrapper {
+    width: 100%;
+    height: 100%;
+    text-align: justify;
+    color: #ffffff;
+}
+#contact_form {
+    width: 100%;
+    height: 100%;
+    padding: 20px 30px;
+    background-color: #000;
+    border-radius: 15px;;
+}
+#contact_form > p {
+    color: #fff;
+    margin: 10px 0 50px 0;
+    text-align: center;
+    font: 20px bold;
+}
+input[type="text"], input[type="email"] {
+    width: 100%;
+    margin: 20px 0 10px 0;
+    padding: 10px;
+    color: #fff;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    background-color: #000;
+}
+input[type="submit"] {
+    height: 40px;
+    margin: 300px 30% 0 30%;
+    width: 40%;
+    text-align: center;
+    font: 20px bold;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(79, 173, 250);
+    color: #fff;
+}
+footer {
+    display: block;
+    padding: 20px 40%;
+    color: #fff;
+}
+footer h6 {
+    text-align: center;
+    font: 18px fantasy, Arial;
+    font-weight: 900;
+    color: rgb(79, 173, 250);
+}
+footer ul {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+}
+footer li {
+    float: left;
+    display: block;
+    width: 25%;
+    height: 30px;
+    list-style: none;
+}
+footer a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+footer:after {
+    content: " ";
+    display: table;
+    clear: both;
+}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='concertspage.css') }}">
+{% endblock %}
+
+{% block conc_img %}
+    {{ super() }}
+{% endblock %}
+
+{% block main %}
+<div class="info_wrapper">
+    {% for c in concert_list %}
+    <div class="concert_item">
+        <div class="date_time">
+            <h1> {{ ddmm[loop.index0] }} <br> {{ yy[loop.index0] }} </h1>
+        </div>
+        <div class="location">
+            <h1> {{ city[loop.index0] }} <br> {{ stadium[loop.index0] }} </h1>
+        </div>
+        <div class="buy_ticket">
+            <h1>Купить билет</h1>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<form action="" method="post">
+<p>
+    <input type="submit" value="Загрузить еще">
+</p>
+</form>
+{% endblock %}

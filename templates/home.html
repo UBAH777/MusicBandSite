@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='mainpage.css') }}">
+{% endblock %}
+
+{% block nav %}
+<header>
+    <div id="navbar">
+        <ul>
+            <li><a href="#about">ГРУППА</a></li>
+            <li><a href="#concerts">КОНЦЕРТЫ</a></li>
+            <li id="main_img"><a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='/imgs/semenyky.jpg') }}"></a></li>
+            <li><a href="#music">МУЗЫКА</a></li>
+            <li><a href="{{ url_for('shoppage') }}">МАГАЗИН</a></li>
+        </ul>
+    </div>
+</header>
+{% endblock %}
+
+{% block conc_img %}
+    {{ super() }}
+{% endblock %}
+
+
+
+{% block main %}
+<section id="about">
+    <div>
+        <h1>О нас</h1>
+    </div>
+    <div class="info_wrapper">
+        <p>История группы история группы история группы история группы история группы 
+            история группы история группы история группы история группы история группы 
+            история группы история группы история группы история группы история группы 
+            история группы история группы история группы история группы история группы ........</p>
+    </div>
+    <div id="news" class="more_info">
+        <a href="{{ url_for('bandpage') }}"><p>Последние новости</p></a>
+    </div>
+</section>
+<section id="concerts">
+    <div>
+        <h1>Концерты</h1>
+    </div>
+    <div class="info_wrapper">
+        {% for c in concert_list %}
+            <div class="concert_item">
+                <span>
+                    <a href="{{ url_for('concertspage') }}">
+                        <h4> {{ c }} </h4>
+                    </a>
+                </span>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="more_concerts" class="more_info">
+        <a href="{{ url_for('concertspage') }}"><p>Все концерты</p></a>
+    </div>
+</section>
+<section id="music">
+    <div><h1>Альбомы</h1></div>
+    <div id="album_wrapper" class="info_wrapper">
+        <!---Список альбомов (как ссылки)-->
+        <ul>
+            {% for al in albums %}
+                <li><a href="{{ url_for('musicpage') }}">{{al}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="more_music" class="more_info">
+        <a href="{{ url_for('musicpage') }}"><p>Все альбомы</p></a>
+    </div>
+</section>
+{% endblock %}
