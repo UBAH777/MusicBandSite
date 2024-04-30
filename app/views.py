@@ -1,56 +1,9 @@
-from datetime import datetime
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask import Flask, render_template, request, redirect, url_for, make_response
-from flask_sqlalchemy import SQLAlchemy
-#from flask_script import Manager
-from forms import CreateAccForm, LogInForm
+from app import app
+from flask import render_template, request, redirect, url_for, make_response
 from flask_login import LoginManager, UserMixin, login_required, login_user
+from app.models import *
+from app.forms import *
 
-
-app = Flask(__name__)
-app.debug = True
-app.config['SECRET_KEY'] = 'a really really really really long secret key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/ubah/Documents/Pyyy/NewSite/band.db'
-login_manager = LoginManager(app)
-login_manager.login_view = 'login'
-
-
-db = SQLAlchemy(app)
-#manager = Manager(app)
-#db.init_app(app)
-
-
-class Concert(db.Model):
-    __tablename__ = 'concerts'
-    id = db.Column(db.Integer(), primary_key=True)
-    date = db.Column(db.Text, nullable=True)
-    location = db.Column(db.Text, nullable=True)
-    tickets_left = db.Column(db.Integer())
-
-    def __repr__(self):
-        return f"{self.id} {self.date}"
-    
-
-@login_manager.user_loader
-def load_user(user_id):
-    return db.session.query(User).get(user_id)
-
-class User(db.Model, UserMixin):
-    __tablename__ = 'users'
-    id = db.Column(db.Integer(), primary_key=True)
-    username = db.Column(db.String(50), nullable=False, unique=True)
-    email = db.Column(db.String(100), nullable=False, unique=True)
-    password_hash = db.Column(db.String(100), nullable=False)
-    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
-
-    def __repr__(self):
-        return "<{}:{}>".format(self.id, self.username)
-    
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
-
-    def check_password(self,  password):
-        return check_password_hash(self.password_hash, password)
 
 
 @app.route('/')
@@ -146,10 +99,3 @@ def login():
             return redirect(url_for('login'))
         
     return render_template('login.html', form=form)
-
-
-if __name__ == "__main__":
-    #manager.run()
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
