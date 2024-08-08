@@ -83,11 +83,11 @@
 
 ---
 
-- api/users/<id> GET
+- api/users/<int:id> GET
 - api/users GET
-- api/users/<id> PUT
+- api/users/<int:id> PUT
 - api/users POST
-- api/concerts/<id> GET
+- api/concerts/<int:id> GET
 - api/concerts GET
 - api/tokens POST
 - api/tokens DELETE
