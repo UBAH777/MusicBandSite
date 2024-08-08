@@ -1,0 +1,16 @@
+<header>
+    <div id="navbar">
+        <ul>
+            <li id="main_img"><a href="{{ url_for('main.show_home_page') }}"><img src="{{ url_for('static', filename='/imgs/logo.jpg') }}"></a></li>
+            <li><a href="{{ url_for('main.show_band_news') }}">ГРУППА</a></li>
+            <li><a href="{{ url_for('main.show_concert_list') }}">КОНЦЕРТЫ</a></li>
+            <li><a href="{{ url_for('main.show_album_list') }}">МУЗЫКА</a></li>
+            <li><a href="{{ url_for('main.show_shop_page') }}">МАГАЗИН</a></li>
+            {% if current_user.is_anonymous %}
+                <li><a href="{{ url_for('auth.login') }}">ВОЙТИ</a></li>
+            {% else %}
+                <li><a href="{{ url_for('auth.user_profile') }}">ПРОФИЛЬ</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</header>

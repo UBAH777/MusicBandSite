@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+body {
+    background-color: #000000;
+}
+footer {
+    display: block;
+    padding: 20px 40%;
+    color: #fff;
+}
+footer h6 {
+    text-align: center;
+    font: 18px fantasy, Arial;
+    font-weight: 900;
+    color: rgb(79, 173, 250);
+}
+footer ul {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+}
+footer li {
+    float: left;
+    display: block;
+    width: 25%;
+    height: 30px;
+    list-style: none;
+}
+footer a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+footer:after {
+    content: " ";
+    display: table;
+    clear: both;
+}

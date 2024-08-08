@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='concertspage.css') }}">
+{% endblock %}
+
+{% block conc_img %}
+    {{ super() }}
+{% endblock %}
+
+{% block main %}
+<div class="info_wrapper">
+    {% for c in concert_list %}
+    <div class="concert_item">
+        <div class="date_time">
+            <h1> {{ ddmm[loop.index0] }} <br> {{ yy[loop.index0] }} </h1>
+        </div>
+        <div class="location">
+            <h1> {{ city[loop.index0] }} <br> {{ stadium[loop.index0] }} </h1>
+        </div>
+        <div class="buy_ticket">
+            <h1><a href="{{ url_for('main.buy_ticket', concert_id=c.id) }}">Купить билет</a></h1>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<table style="width:100%">
+    <tr>
+      <th>
+        {% if prev_url %}
+        <!-- <a href="{{ prev_url }}">Newer posts</a> -->
+        <form action="{{ prev_url }}" method="post">
+            <p>
+                <input type="submit" value="newer">
+            </p>
+        </form>
+        {% endif %}
+      </th>
+      <th>
+        {% if next_url %}
+        <!-- <a href="{{ next_url }}">Older posts</a> -->
+        <form action="{{ next_url }}" method="post">
+            <p>
+                <input type="submit" value="older">
+            </p>
+        </form>
+        {% endif %}
+      </th>
+    </tr>
+</table>
+
+{% endblock %}

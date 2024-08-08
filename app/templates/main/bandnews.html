@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+{% endblock %}
+
+{% block conc_img %}
+    {{ super() }}
+{% endblock %}
+
+{% block main %}
+    <h1 style="color: white"> Oops. In progress... </h1>
+{% endblock %}

@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+body {
+    background-color: #000000;
+}
+#navbar {
+    background-color: #000000;
+    padding-left: 15%;
+    padding-right: 15%;
+    height: 50px;
+    padding-bottom: 0px;
+    font: 20px fantasy, Arial;
+    font-weight: 900;
+}
+#navbar ul {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+#navbar li {
+    float: left;
+    display: block;
+    width: 20%;
+    height: 50px;
+    list-style: none;   
+}
+#navbar a {
+    display: block;
+    color: rgb(79, 173, 250);
+    text-align: center;
+    height: 100%;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+#main_img a {
+    padding: 0;
+}
+#main_img img {
+    height: 100%;
+    vertical-align: center;
+}
+#navbar a:hover {
+    background-color: #cccccc7e;
+}
+#navbar:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+#consert_image {
+    display: block;
+    width: 100%;
+    height: 600px;
+    background-image: url(../imgs/concert6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+}
+main {
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+main section {
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 300px;
+}
+section > div:first-child {
+    width: 100%;
+    height: 43px;
+    padding: 10px 50px 10px 50px;
+    text-align: center;
+    font: 20px fantasy, Arial;
+    font-weight: 900;
+    color: rgb(79, 173, 250);
+}
+.info_wrapper {
+    height: 70%;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: justify;
+    color: #ffffff;
+}
+.more_info {
+    padding: 10px 25px;
+    text-align: right;
+    color: #ffffff;
+}
+.concert_item {
+    margin: 10px 0 10px 0;
+    padding: 20px;
+    border: 1px solid #fff;
+}
+#album_wrapper ul {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+#album_wrapper li {
+    float: left;
+    display: block;
+    width: 20%;
+    margin: 10px 2.5%;
+    list-style: none;
+}
+#album_wrapper a {
+    display: block;
+    color: rgb(255, 255, 255);
+    height: 150px;
+    text-decoration: none;
+    border: 1px solid #ffffff;
+}
+#album_wrapper:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+footer {
+    display: block;
+    padding: 20px 40%;
+    color: #fff;
+}
+footer h6 {
+    text-align: center;
+    font: 18px fantasy, Arial;
+    font-weight: 900;
+    color: rgb(79, 173, 250);
+}
+footer ul {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+}
+footer li {
+    float: left;
+    display: block;
+    width: 25%;
+    height: 30px;
+    list-style: none;
+}
+footer a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+footer:after {
+    content: " ";
+    display: table;
+    clear: both;
+}

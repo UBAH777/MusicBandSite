@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+{% endblock %}
+
+{% block nav %}
+<header>
+    <div id="navbar">
+        <ul>
+            <li id="main_img"><a href="{{ url_for('main.show_home_page') }}"><img src="{{ url_for('static', filename='/imgs/logo.jpg') }}"></a></li>
+            <li><a href="#about">ГРУППА</a></li>
+            <li><a href="#concerts">КОНЦЕРТЫ</a></li>
+            <li><a href="#music">МУЗЫКА</a></li>
+            <li><a href="{{ url_for('main.show_shop_page') }}">МАГАЗИН</a></li>
+            {% if current_user.is_anonymous %}
+                <li><a href="{{ url_for('auth.login') }}">ВОЙТИ</a></li>
+            {% else %}
+                <li><a href="{{ url_for('auth.user_profile') }}">ПРОФИЛЬ</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</header>
+{% endblock %}
+
+{% block conc_img %}
+    {{ super() }}
+{% endblock %}
+
+
+
+{% block main %}
+<section id="about">
+    <div>
+        <h1>О нас</h1>
+    </div>
+    <div class="info_wrapper">
+        <p>История группы история группы история группы история группы история группы 
+            история группы история группы история группы история группы история группы 
+            история группы история группы история группы история группы история группы 
+            история группы история группы история группы история группы история группы ........</p>
+    </div>
+    <div id="news" class="more_info">
+        <a href="{{ url_for('main.show_band_news') }}"><p>Последние новости</p></a>
+    </div>
+</section>
+<section id="concerts">
+    <div>
+        <h1>Концерты</h1>
+    </div>
+    <div class="info_wrapper">
+        {% for c in concert_list %}
+            <div class="concert_item">
+                <span>
+                    <a href="{{ url_for('main.show_concert_list') }}">
+                        <h4> {{ c }} </h4>
+                    </a>
+                </span>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="more_concerts" class="more_info">
+        <a href="{{ url_for('main.show_concert_list') }}"><p>Все концерты</p></a>
+    </div>
+</section>
+<section id="music">
+    <div><h1>Альбомы</h1></div>
+    <div id="album_wrapper" class="info_wrapper">
+        <!---Список альбомов (как ссылки)-->
+        <ul>
+            {% for al in albums %}
+                <li><a href="{{ url_for('main.show_album_list') }}">{{al}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="more_music" class="more_info">
+        <a href="{{ url_for('main.show_album_list') }}"><p>Все альбомы</p></a>
+    </div>
+</section>
+{% endblock %}
